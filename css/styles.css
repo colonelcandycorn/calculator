@@ -1,0 +1,65 @@
+body {
+    margin: 20px 0px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'PressStart2P';
+    color: green;
+}
+
+@font-face {
+    font-family: 'PressStart2P';
+    src: url(../images/PressStart2P-Regular.ttf);
+}
+
+.container {
+    border: black solid 5px;
+    border-radius: 12px;
+    max-height: 655px;
+    max-width: 405px;
+}
+/*calculator screen */
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    border-bottom: blue solid 5px;
+    background-color: black;
+    min-height: 150px;
+    max-width: 405px;
+}
+
+.numString {
+    margin: 10px 5px 0px 0px;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    flex: 1;
+}
+
+.evaluation {
+    margin: 0px 5px 5px 0px;
+}
+/*button part of calculator */
+
+.buttonContainer {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 400px;
+    max-height: 500px;
+    min-height: 500px;
+}
+
+.button {
+    font-family: 'PressStart2P';
+    flex-basis: 25%;
+    border: red solid 2px;
+    color: green;
+    max-width: 80px;
+    min-height: 80px;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 12px;
+    font-size: 15px;
+    margin: 10px
+}
