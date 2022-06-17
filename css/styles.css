@@ -30,12 +30,15 @@ body {
     max-width: 405px;
 }
 
+
 .numString {
+    flex: 1;
     margin: 10px 5px 0px 0px;
     overflow: hidden;
     overflow-wrap: break-word;
-    flex: 1;
+    line-height: 1.6;
 }
+
 
 .evaluation {
     margin: 0px 5px 5px 0px;
