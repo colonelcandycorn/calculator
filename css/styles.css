@@ -50,6 +50,7 @@ body {
 
 .buttonContainer {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     max-width: 400px;
     max-height: 500px;
@@ -69,7 +70,7 @@ body {
     margin: 0px;
     border-radius: 25px;
     font-size: 15px;
-    margin: 10px
+    margin: 8px
 }
 
 .button:active {
