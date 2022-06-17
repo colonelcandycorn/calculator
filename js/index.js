@@ -50,7 +50,7 @@ function updateNumberString(text) {
                 firstNumberString += text;
                 numberString.textContent = text;
                 mode = 'number1';
-            } else if ((/[\+\/\*]/.test(text) || text =='-') && numberString.textContent) {
+            } else if ((/^[\+\/\*]$/.test(text) || text =='-') && numberString.textContent) {
                 firstNumberString = numberString.textContent;
                 numberString.textContent += text;
                 operator = text;
@@ -63,7 +63,7 @@ function updateNumberString(text) {
             if (/\d/.test(text)) {
                 firstNumberString += text;
                 numberString.textContent += text;
-            } else if (/[\+\/\*]/.test(text) || text =='-') {
+            } else if (/^[\+\/\*]$/.test(text) || text =='-') {
                 operator = text;
                 numberString.textContent += text;
                 mode = 'operator';
@@ -78,7 +78,7 @@ function updateNumberString(text) {
                 mode = 'number2'
                 result = operate(operator, +firstNumberString, +secondNumberString);
                 evaluation.textContent = result
-            } else if (/[\+\/\*]/.test(text) || text =='-') {
+            } else if (/^[\+\/\*]$/.test(text) || text =='-') {
                 operator = text;
                 numberString.textContent = numberString.textContent.slice(0,-1);
                 numberString.textContent += text;
@@ -92,7 +92,7 @@ function updateNumberString(text) {
                 numberString.textContent += text;
                 result = operate(operator, +firstNumberString, +secondNumberString);
                 evaluation.textContent = result;
-            } else if (/[\+\/\*]/.test(text) || text =='-') {
+            } else if (/^[\+\/\*]$/.test(text) || text =='-') {
                 operator = text;
                 numberString.textContent += text;
                 firstNumberString = String(result);
