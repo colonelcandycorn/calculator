@@ -13,11 +13,11 @@ function subtract(num1, num2) {
 }
 
 function multiply(num1, num2) {
-    return num1 * num2;
+    return Math.floor((num1 * num2) * 10000) / 10000
 }
 
 function divide(num1, num2) {
-    return num1 / num2;
+    return Math.floor((num1 / num2) * 10000) / 10000
 }
 
 function operate(operator, num1, num2) {
@@ -33,24 +33,15 @@ function operate(operator, num1, num2) {
     }
 }
 
-// function updateNumberString(text) {
-//     if (operated) {
-//         if (/\d/.test(text)) {
-//             secondNumberString += text;
-//             numberString.textContent += text;
-//         }
-//     } else {
-//         if (/\d/.test(text)) {
-//             firstNumberString += text;
-//             numberString.textContent += text;
-//         } else if (/[\+\/\*]/.test(text) || text == '-') {
-//             operated = true;
-//             operator = text;
-//             numberString.textContent += ` ${text} `
-//         }
-//     }
-//     console.log(operator, firstNumberString, secondNumberString)
-// }
+function reset() {
+    numberString.textContent = '';
+    firstNumberString = '';
+    secondNumberString = '';
+    operator = '';
+    result = 0;
+    evaluation.textContent = '';
+    mode = 'empty';
+}
 
 function updateNumberString(text) {
     switch (mode) {
@@ -59,11 +50,13 @@ function updateNumberString(text) {
                 firstNumberString += text;
                 numberString.textContent = text;
                 mode = 'number1';
-            } else if (/[\+\/\*]/.test(text) || text =='-' && numberString.textContent) {
+            } else if ((/[\+\/\*]/.test(text) || text =='-') && numberString.textContent) {
                 firstNumberString = numberString.textContent;
                 numberString.textContent += text;
                 operator = text;
                 mode = 'operator'
+            } else if (text == 'C') {
+                reset();
             }
             break
         case 'number1':
@@ -74,6 +67,8 @@ function updateNumberString(text) {
                 operator = text;
                 numberString.textContent += text;
                 mode = 'operator';
+            } else if (text == 'C') {
+                reset();
             }
             break
         case 'operator':
@@ -87,6 +82,8 @@ function updateNumberString(text) {
                 operator = text;
                 numberString.textContent = numberString.textContent.slice(0,-1);
                 numberString.textContent += text;
+            } else if (text == 'C') {
+                reset();
             }
             break
         case 'number2':
@@ -106,8 +103,9 @@ function updateNumberString(text) {
                 firstNumberString = '';
                 secondNumberString = '';
                 evaluation.textContent = '';
-                mode = 'empty'
-
+                mode = 'empty';
+            } else if (text == 'C') {
+                reset();
             }
     }
     console.log(firstNumberString, operator, secondNumberString, result)
@@ -138,3 +136,5 @@ for (let x in buttonList) {
 const buttons = document.querySelectorAll('.button');
 
 buttons.forEach(button => button.addEventListener('click', (e) => updateNumberString(e.target.textContent)));
+
+document.addEventListener('keydown', (e) => updateNumberString(e.key))

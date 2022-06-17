@@ -1,10 +1,12 @@
 body {
     margin: 20px 0px 0px 0px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: 'PressStart2P';
-    color: green;
+    color: rgb(44, 202, 44);
+    background-color: rgb(155, 155, 155);
 }
 
 @font-face {
@@ -13,10 +15,10 @@ body {
 }
 
 .container {
-    border: black solid 5px;
+    border: rgb(109, 107, 107) solid 5px;
     border-radius: 12px;
     max-height: 655px;
-    max-width: 405px;
+    max-width: 400px;
 }
 /*calculator screen */
 
@@ -24,9 +26,10 @@ body {
     display: flex;
     flex-direction: column;
     text-align: right;
-    border-bottom: blue solid 5px;
+    border-bottom: rgb(80, 80, 80) solid 5px;
     background-color: black;
     min-height: 150px;
+    max-height: 150px;
     max-width: 405px;
 }
 
@@ -51,18 +54,33 @@ body {
     max-width: 400px;
     max-height: 500px;
     min-height: 500px;
+    background-color: black;
 }
 
 .button {
     font-family: 'PressStart2P';
     flex-basis: 25%;
-    border: red solid 2px;
-    color: green;
+    background-color: rgb(80, 79, 79);
+    /* border: red solid 2px; */
+    color: rgb(21, 197, 21);
     max-width: 80px;
     min-height: 80px;
     padding: 0px;
     margin: 0px;
-    border-radius: 12px;
+    border-radius: 25px;
     font-size: 15px;
     margin: 10px
+}
+
+.button:active {
+    font-size: smaller;
+    background-color: rgb(102, 102, 102);
+}
+
+.C {
+    color: rgb(236, 56, 56);
+}
+
+.\/, .\*, .\-, .\+, .\=, .\%, .\(\) {
+    color: rgb(248, 177, 45);
 }
