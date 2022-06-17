@@ -60,7 +60,7 @@ body {
 
 .button {
     font-family: 'PressStart2P';
-    flex-basis: 25%;
+    flex-basis: 20%;
     background-color: rgb(80, 79, 79);
     /* border: red solid 2px; */
     color: rgb(21, 197, 21);
